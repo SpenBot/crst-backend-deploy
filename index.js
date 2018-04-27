@@ -18,10 +18,10 @@ const cors = require('cors')
 
 app.use(cors())
 
-const http = require('http')
-const socketIO = require('socket.io')
-const server = http.createServer(app)
-const io = socketIO.listen(server)
+// const http = require('http')
+// const socketIO = require('socket.io')
+// const server = http.createServer(app)
+// const io = socketIO.listen(server)
 
 
 
@@ -42,19 +42,19 @@ server.listen(process.env.PORT || 4000, () => {
 })
 
 app.get("/", (req, res) => {
-  // res.json({
-  //   test1: 1,
-  //   test2: 2,
-  //   test3: 3,
-  //   test4: 4,
-  //   test5: 5
-  // })
+  res.json({
+    test1: 1,
+    test2: 2,
+    test3: 3,
+    test4: 4,
+    test5: 5
+  })
   res.send("Hello CRST")
 })
 
 
 
-
+/*
 
 
 /////////////// GAME STATE /////////////////////////////////////////////
@@ -283,7 +283,7 @@ io.on('connection', function(socket) {
 
 
 
-
+*/
 
 
 // END ////////////////////////////////////////////////////////////////
