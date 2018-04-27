@@ -37,7 +37,7 @@ app.use(cors())
 //   console.log(`\n\tServer listening on port : ${app.get('port')}.\n`)
 // })
 
-server.listen(process.env.PORT || 4000, () => {
+server.listen(process.env.PORT, () => {
     console.log("\n\tServer listening on port : PRODUCTION \n")
 })
 
