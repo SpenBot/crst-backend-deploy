@@ -31,10 +31,14 @@ const io = socketIO.listen(server)
 //// SERVER CONFIGURATIONS /////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 
-app.set('port', process.env.PORT || 4000)
+// app.set('port', process.env.PORT || 4000)
+//
+// server.listen(app.get('port'), () => {
+//   console.log(`\n\tServer listening on port : ${app.get('port')}.\n`)
+// })
 
-server.listen(app.get('port'), () => {
-  console.log(`\n\tServer listening on port : ${app.get('port')}.\n`)
+server.listen(process.env.PORT || 4000, () => {
+    console.log("\n\tServer listening on port : PRODUCTION \n")
 })
 
 app.get("/", (req, res) => {
