@@ -42,13 +42,14 @@ server.listen(process.env.PORT, () => {
 })
 
 app.get("/", (req, res) => {
-  res.json({
-    test1: 1,
-    test2: 2,
-    test3: 3,
-    test4: 4,
-    test5: 5
-  })
+  // res.json({
+  //   test1: 1,
+  //   test2: 2,
+  //   test3: 3,
+  //   test4: 4,
+  //   test5: 5
+  // })
+  
   res.send("Hello CRST")
 })
 
