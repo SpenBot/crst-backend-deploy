@@ -12,7 +12,6 @@ const cors = require('cors')
 
 
 
-
 //// MIDDLEWWARE //////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
@@ -105,6 +104,7 @@ function gameReset () {
     playerPositions()
     applePosition()
     resetScore()
+
 }
 
 
@@ -203,6 +203,17 @@ function checkAppleCol (player) {
     }
 
 }
+
+/////////////// PLAYER COLLIDE ////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+function playerCollide () {
+    io.sockets.emit('playerCollision', {
+      collide: true
+    })
+}
+
+
 
 
 
@@ -340,7 +351,10 @@ io.on('connection', function(socket) {
           }
 
           if (newRedX === blueX && newRedY === blueY) {
-              return
+              playerCollide()
+          }
+          else if (newRedX < 0 || newRedY < 0 || newRedX > tileCountX || newRedY >= tileCountY) {
+              playerCollide()
           }
           else {
               redX = newRedX
@@ -371,7 +385,10 @@ io.on('connection', function(socket) {
           }
 
           if (newBlueX === redX && newBlueY === redY) {
-              return
+              playerCollide()
+          }
+          else if (newBlueX < 0 || newBlueY < 0 || newBlueX > tileCountX || newBlueY >= tileCountY) {
+              playerCollide()
           }
           else {
               blueX = newBlueX
@@ -403,6 +420,11 @@ io.on('connection', function(socket) {
 
 
 })
+
+
+
+
+
 
 
 
